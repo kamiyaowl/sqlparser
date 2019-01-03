@@ -63,7 +63,7 @@ namespace SqlParser {
             var result = Parser.Parse(sql);
             var sb = new StringBuilder();
             foreach (var r in result) {
-                sb.AppendLine(r.Item1);
+                sb.AppendLine(r.Item1.ToUpper());
                 foreach (var t in r.Item2.Select((x, i) => new { Index = i, Data = x })) {
                     if (r.Item2.Length - 1 == t.Index) {
                         sb.AppendLine($"\t{t.Data}");
